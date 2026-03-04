@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bertrand Atemkeng - Platform Engineering Leader</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-color: #fafafa;
+            --text-color: #2a2a2a;
+            --accent-color: #0066cc;
+            --border-color: #e0e0e0;
+            --card-bg: #ffffff;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: -0.5px;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            font-size: 0.95rem;
+            color: #666;
+        }
+
+        .contact-info a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        .contact-info a:hover {
+            opacity: 0.7;
+        }
+
+        section {
+            margin-bottom: 60px;
+        }
+
+        h2 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 30px;
+            color: #999;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-color);
+            margin-bottom: 20px;
+        }
+
+        .strengths {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .strength-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .strength-item::before {
+            content: "✓";
+            color: var(--accent-color);
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .experience-item {
+            margin-bottom: 40px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .experience-item:last-child {
+            border-bottom: none;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .role {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .company {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        .dates {
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        .impact {
+            background: #f0f7ff;
+            padding: 15px;
+            border-left: 3px solid var(--accent-color);
+            margin: 15px 0;
+            font-weight: 500;
+        }
+
+        .highlights {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .highlights li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .highlights li::before {
+            content: "•";
+            position: absolute;
+            left: 5px;
+            color: var(--accent-color);
+        }
+
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .award-item {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .award-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .award-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--text-color);
+        }
+
+        .award-issuer {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .tech-badge {
+            background: var(--card-bg);
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            font-size: 0.9rem;
+            color: var(--text-color);
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--accent-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            margin-top: 20px;
+            transition: background 0.2s;
+            font-weight: 500;
+        }
+
+        .cta-button:hover {
+            background: #0052a3;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 80px;
+            padding-top: 40px;
+            border-top: 1px solid var(--border-color);
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .tagline {
+                font-size: 1rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .experience-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Bertrand Atemkeng</h1>
+            <div class="tagline">Remote-First Platform Engineering Leader | AWS Certified Solutions Architect</div>
+            <div class="contact-info">
+                <span>📧 <a href="mailto:bertrand@atemkeng.de">bertrand@atemkeng.de</a></span>
+                <span>📱 +49 152 26449774</span>
+                <span>🌍 Aarau, Switzerland (CET)</span>
+            </div>
+        </header>
+
+        <section id="about">
+            <h2>About</h2>
+            <p class="about-text">
+                Platform engineering leader with 8+ years driving cloud-native infrastructure and distributed systems at scale. Proven track record reducing delivery cycles by 40%, cutting operational costs 30-50%, and mentoring engineers across time zones.
+            </p>
+            <p class="about-text">
+                I specialize in building reusable platform blueprints, AI-enabled workflows, and geo-distributed resilience on AWS. My remote-first mindset enables effective async collaboration across US/EU/APAC teams, translating business requirements into scalable technical solutions with measurable outcomes.
+            </p>
+
+            <div class="strengths">
+                <div class="strength-item">Distributed Team Leadership – Managed 12-person engineering team across multiple time zones</div>
+                <div class="strength-item">Async Communication – Documentation-first culture; clear RFCs, ADRs, and technical writing</div>
+                <div class="strength-item">Self-Directed Execution – Delivered platform migrations with minimal synchronous meetings</div>
+                <div class="strength-item">Stakeholder Influence – Drove architectural alignment across business, delivery, and ops</div>
+                <div class="strength-item">Time Zone Flexibility – Available for US/EU overlap; proven experience with global partners</div>
+                <div class="strength-item">FinOps Mindset – Cost-aware by default; reduced partner spending 20-30% through reviews</div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2>Experience</h2>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="role">Partner / AWS Certified Solutions Architect</div>
+                        <div class="company">Nebula Logix (Houston, TX – Remote)</div>
+                    </div>
+                    <div class="dates">Feb 2025 – Present</div>
+                </div>
+                <div class="impact">
+                    <strong>Impact:</strong> Reduced client delivery cycles 40% through standardized serverless blueprints; grew technical team from 0 to 4 engineers across US/Nigeria.
+                </div>
+                <ul class="highlights">
+                    <li>Architected reusable AWS blueprints (serverless, MLOps, managed ops) enabling partners to ship production workloads in weeks vs months</li>
+                    <li>Built remote-first hiring pipeline and onboarding process; mentored junior engineers to production contributions within 2-3 weeks</li>
+                    <li>Designed multi-region failover architectures for mission-critical AI workloads (>99.9% uptime SLA)</li>
+                    <li>Defined 2026 platform vision balancing scalability, cost, and partner velocity</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="role">Solution Architect / Technical Product Owner</div>
+                        <div class="company">INGTES AG, Aarau, Switzerland</div>
+                    </div>
+                    <div class="dates">Mar 2025 – Present</div>
+                </div>
+                <div class="impact">
+                    <strong>Impact:</strong> Achieved 30-50% effort reduction through AI agent adoption; protected revenue by architecting secure onboarding for Replay Ad Platform.
+                </div>
+                <ul class="highlights">
+                    <li>Introduced AI agents for backlog triage, release notes, and cost analysis; company adopted solution organization-wide</li>
+                    <li>Defined arc42-aligned architecture for broadcaster platform (RAP) enabling secure S3-based onboarding for sales houses</li>
+                    <li>Built AI-powered dashboards (30/60/90/180/365-day patterns) now reused as templates by partner teams</li>
+                    <li>Translated business requirements into technical decisions with measurable outcomes (revenue protection, campaign uptime, cost reduction)</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="role">Co-Founder</div>
+                        <div class="company">J&A Business Solutions (Dallas, TX)</div>
+                    </div>
+                    <div class="dates">Jan 2025 – Present</div>
+                </div>
+                <div class="impact">
+                    <strong>Impact:</strong> Grew Dallas property to profitability through cloud-native property-tech automation; manage $80K invested + $60K credit line.
+                </div>
+                <ul class="highlights">
+                    <li>Shifted AI prototypes into production (cost calculators, guest persona tools, property management automation)</li>
+                    <li>4 properties generating ~$15-17K/month; optimized margins from 5-6% through automation</li>
+                    <li>Remote management of multi-state portfolio; async coordination with co-founder and property managers</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="role">Solution Architect</div>
+                        <div class="company">WIIT AG, Düsseldorf, Germany (Remote-Hybrid)</div>
+                    </div>
+                    <div class="dates">May 2024 – Feb 2025</div>
+                </div>
+                <ul class="highlights">
+                    <li>Developed cloud solution concepts, cost estimates, and presentation materials for Premium Cloud Services</li>
+                    <li>Presented proposals on-site and remotely to existing and prospective clients</li>
+                    <li>Designed tailored operational models for critical business applications in regulated industries</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div>
+                        <div class="role">Senior Consultant | Technical Project Manager</div>
+                        <div class="company">CGI, Düsseldorf, Germany</div>
+                    </div>
+                    <div class="dates">Jun 2021 – Apr 2024</div>
+                </div>
+                <div class="impact">
+                    <strong>Impact:</strong> Managed 12-person team delivering e-commerce B2B platform supporting €XXM in transactions.
+                </div>
+                <ul class="highlights">
+                    <li>Managed specialized DevOps team; prioritized projects, controlled budgets, ensured architectural alignment</li>
+                    <li>Primary technical liaison between business, delivery, and operations—translated requirements into scalable solutions</li>
+                    <li>Led architecture evolution to meet changing business demands; conducted software modeling for future scalability</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="certifications">
+            <h2>Certifications & Awards</h2>
+            <div class="awards-grid">
+                <div class="award-item">
+                    <div class="award-title">AWS Certified Solutions Architect</div>
+                    <div class="award-issuer">Amazon Web Services</div>
+                </div>
+                <div class="award-item">
+                    <div class="award-title">FinOps Certified Practitioner</div>
+                    <div class="award-issuer">FinOps Foundation</div>
+                </div>
+                <div class="award-item">
+                    <div class="award-title">Certificate in Business Strategy</div>
+                    <div class="award-issuer">Harvard Business School</div>
+                </div>
+                <div class="award-item">
+                    <div class="award-title">SAFe® Product Owner/Product Manager</div>
+                    <div class="award-issuer">Scaled Agile (POPM 6.0)</div>
+                </div>
+                <div class="award-item">
+                    <div class="award-title">Professional Scrum Master</div>
+                    <div class="award-issuer">Scrum.org (PSM1)</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Skills & Technologies</h2>
+            <div class="tech-stack">
+                <span class="tech-badge">AWS</span>
+                <span class="tech-badge">Azure</span>
+                <span class="tech-badge">Docker</span>
+                <span class="tech-badge">Kubernetes</span>
+                <span class="tech-badge">Terraform</span>
+                <span class="tech-badge">Python</span>
+                <span class="tech-badge">JavaScript/TypeScript</span>
+                <span class="tech-badge">PostgreSQL</span>
+                <span class="tech-badge">Serverless</span>
+                <span class="tech-badge">Microservices</span>
+                <span class="tech-badge">CI/CD</span>
+                <span class="tech-badge">FinOps</span>
+                <span class="tech-badge">AI/ML Workflows</span>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Let's Connect</h2>
+            <p class="about-text">
+                Open to remote opportunities in the US, Switzerland, and EU. Particularly interested in platform engineering, cloud architecture, and AI-enabled developer productivity roles.
+            </p>
+            <a href="https://www.linkedin.com/in/atemkeng/" class="cta-button" target="_blank">View Full Profile on LinkedIn →</a>
+        </section>
+
+        <footer>
+            <p>© 2026 Bertrand Atemkeng. All rights reserved.</p>
+            <p style="margin-top: 10px;">📍 Based in Switzerland | 🌍 Available for US/EU remote work</p>
+        </footer>
+    </div>
+</body>
+</html>
